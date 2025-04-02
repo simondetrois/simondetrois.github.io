@@ -4,3 +4,6 @@
 # React Router
 /.react-router/
 /build/
+
+# js-converted-files
+convertMarkdowns.js

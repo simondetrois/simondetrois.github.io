@@ -1,21 +1,10 @@
-Data transfer should be encrypted for secure communication over a network. 
-## SSL / TLS
-- **Both**: SSL and TLS ensures, that the communication between the browser and the server is secure 
-- **SSL** (Secure Socket Layer): Weaker than TLS because of vulnerability to POODLE or BEAST attacks, weaker cryptographic handshake algorithms (MD5, RC4) and slower performance due to inefficient handshake (is deprecated not used any longer)
-- **TLS**: Mostly adopted and currently used - uses stronger key exchange mechanisms (AES, SHA-256, ChaCha20) and has an optimized handshake with session resumption
+# Test file 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## TLS
-- To enable a session with TLS encryption, a handshake first have to be made
-1. The client (Browser) sends a ClientHello message to the server (the message contains Infos about the Browser, OS and supported encryption algorithms)
-2. Based on the Infos of the ClientHello, the Browser chooses the type of encryption (default the most powerful one) and sends the ServerHello to the client, containing Infos about the Server, used encryption algorithm and also sends the SSL Certificate (containing domain name, CA and public key)
-3. The client checks the SSL certificate to verify it's trustworthy and not expired. If so, the Browser generates a random session key, encrypts it with the Servers public key and sends it back to the Browser 
-4. The Browser decrypts the session Key with its own private key and checks whether the decrypted session key matches the  previous generated key by the browser. If so, it sends a finished message back to the Client 
-5. Browser sends a finish message back the server containing all previous handshake messages
-![[Pasted image 20250330152048.png]]
-## CA
-- 
-## mTLS
-Mutual TLS - Hierbei wird nicht nur das Zertifikat vom Server überprüft, sondern der Client hat hierbei ebenfalls ein Zertifikat, welches vom Server überprüft wird
+## test header
 
-## OCSP
-Das **Online Certificate Status Protocol** (**OCSP**) ist ein Netzwerkprotokoll , das es Clients ermöglicht, den Status von X.509 Zertifikaten bei einem Validierungsdienst abzufragen. Es ist im RFC 6960 beschrieben und ein Internetstandard.
+Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
+
+---
+
+Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
