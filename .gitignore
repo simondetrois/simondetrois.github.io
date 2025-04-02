@@ -7,3 +7,7 @@
 
 # js-converted-files
 convertMarkdowns.js
+convertMarkdowns.cjs
+
+# generated
+generated

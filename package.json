@@ -3,15 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run md && react-router build",
-    "dev": "npm run md && react-router dev",
-    "start": "npm run md && react-router-serve ./build/server/index.js",
+    "build": "npm run md:convert && react-router build",
+    "dev": "npm run md:convert && react-router dev",
+    "start": "npm run md:convert && react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "md": "npx tsc scripts/convertMarkdowns.ts && node scripts/convertMarkdowns.js"
+    "md:convert": "cd scripts && tsc convertMarkdowns.ts && mv convertMarkdowns.js convertMarkdowns.cjs && cd .. && node scripts/convertMarkdowns.cjs",
+    "md:hash": "find ./public/mds -type f -exec sha256sum {} + | sha256sum",
+    "md:hash:save": "find ./public/mds -type f -exec sha256sum {} + | sha256sum > scripts/hash"
+
   },
   "dependencies": {
     "@react-router/node": "^7.4.1",
     "@react-router/serve": "^7.4.1",
+    "fs-extra": "^11.3.0",
     "isbot": "^5.1.17",
     "lucide-react": "^0.487.0",
     "react": "^19.0.0",
