@@ -32,6 +32,9 @@ jobs:
       - name: install dependencies
         run: npm ci
 
+      - name: convert markdowns to html
+        run: npm run convert
+
       - name: build artifacts
         run: npm run build
 
