@@ -4,13 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "npm run md:convert && react-router build",
-    "dev": "npm run md:convert && react-router dev",
-    "start": "npm run md:convert && react-router-serve ./build/server/index.js",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "md:convert": "cd scripts && tsc convertMarkdowns.ts && mv convertMarkdowns.js convertMarkdowns.cjs && cd .. && node scripts/convertMarkdowns.cjs",
-    "md:hash": "find ./public/mds -type f -exec sha256sum {} + | sha256sum",
-    "md:hash:save": "find ./public/mds -type f -exec sha256sum {} + | sha256sum > scripts/hash"
-
+    "convert": "cd scripts && tsc convertMarkdowns.ts && mv convertMarkdowns.js convertMarkdowns.cjs && cd .. && node scripts/convertMarkdowns.cjs"
   },
   "dependencies": {
     "@react-router/node": "^7.4.1",

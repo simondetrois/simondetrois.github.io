@@ -1,35 +1,35 @@
 import { exec, execSync } from 'child_process';
 import * as fs from 'fs';
 
-const DIR_MD: string = "./public/mds";
+const DIR_MD: string = "./public/markdowns";
 const DIR_HTML: string = "./app/generated";
-
-const getCurrentHash = () => {
-  const outputArray = execSync('npm run md:hash',  { encoding: 'utf-8' }).split("\n")
-  return outputArray[outputArray.length-2]
-}
-
-const latestMarkdownsAlreadyExist = () => getCurrentHash() === fs.readFileSync("scripts/hash").toString()
 
 const createEmptyGeneratedDirIfNotExists = () => {
   if (fs.existsSync(DIR_HTML)) fs.rmSync(DIR_HTML, {recursive:true, force:true})
     fs.mkdirSync(DIR_HTML)
-
 }
 
-(async () =>{
-  if (latestMarkdownsAlreadyExist()){
-    console.log("[INFO] Markdown files haven't changed")
-    return
-  } else {
-    createEmptyGeneratedDirIfNotExists()
-  }
- 
+const createHtmlFile = (path: string, name: string) => {
+  const htmlFilename = name.replace("md", "html") 
+  const htmlFileContent = execSync(`npx markdown ${DIR_MD}/${path}/${name}`,  { encoding: 'utf-8' })
+  fs.mkdirSync(`${DIR_HTML}/${path}`, {recursive: true})
+  fs.writeFileSync(`${DIR_HTML}/${path}/${htmlFilename}`, htmlFileContent)
+}
+
+const convertMarkdownsToHtmlAndSave = () => {
   const files = fs.readdirSync(DIR_MD, { withFileTypes: true, recursive:  true });
-  files.forEach(file => {
-    console.log(file.isFile() + " => " + file.name)
-    
   
-  }) 
+  files.forEach(file => {
+    if (file.isFile()){
+      const path = file.parentPath.split("/").slice(2,file.parentPath.length-1 ).join()
+      createHtmlFile(path, file.name)
+      }
+    }
+  )
+}
+
+(async () => {
+  createEmptyGeneratedDirIfNotExists()
+  convertMarkdownsToHtmlAndSave()
 })()
 
