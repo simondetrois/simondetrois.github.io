@@ -7,6 +7,7 @@ interface NavBarrProps  {
 }
 
 const NavBar = ({ setSidebarOpen, title}:NavBarrProps ) => {
+
   return (
     <header className="flex items-center justify-between bg-gray-900 text-white p-4 shadow-md">
     <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
