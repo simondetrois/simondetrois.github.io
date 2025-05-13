@@ -32,9 +32,6 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: convert markdowns to html
-        run: npm run convert
-
       - name: build artifacts
         run: npm run build
 
@@ -44,7 +41,7 @@ jobs:
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build/client'
+          path: './build'
 
       - name: deploy
         id: deployment
