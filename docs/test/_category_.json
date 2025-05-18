@@ -1,8 +1,8 @@
 {
-  "label": "firstAndSecond",
-  "position": 2,
+  "label": "auth",
+  "position": 1,
   "link": {
     "type": "generated-index", 
-    "description": "custom description"
+    "description": "Different topics regarding authentication and authorization"
   }
 }

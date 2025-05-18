@@ -1,0 +1,8 @@
+{
+  "label": "OAuth2 / OpenID Connect",
+  "position": 1,
+  "link": {
+    "type": "generated-index", 
+    "description": "different topics regarding authentication and authorization"
+  }
+}
