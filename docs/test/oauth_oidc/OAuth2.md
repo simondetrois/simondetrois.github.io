@@ -1,3 +1,8 @@
+---
+title: OAuth2.0
+sidebar_position: 1
+---
+
 - OAth2.0 is an authorization-standard, which defines the process for the granting a client application access to your data. The data is hold on a resource server, which the  client application can request on your behalf.
 - Access Tokens are used for accessing data on behalf of a user. Which kind of token is not specified, however commonly used are e.g. JWTs
 - OAuth defines a few different ways for a client to receive an access token. These different ways are called grants
