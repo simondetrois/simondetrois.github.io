@@ -2,6 +2,9 @@
 title: Authorization Code Flow
 sidebar_position: 2
 ---
+
+The code flow comes into place, where the client wants to retrieve a token and has the clientId, as well as the clientSecret stored. In normal client side rendered frontends it shouldn't be used, because the clientSecret shouldn't be exposed to the browser.
+
 ```mermaid
 sequenceDiagram
     actor User as Resource Owner
@@ -47,6 +50,7 @@ sequenceDiagram
 
 ### 4 - Token endpoint
 - The client application takes the code parameter and executes a silent POST request to the auth servers `/token`-endpoint
+
 `https://<auth-server-host>/token?`  
 `grant_type=authorization_code`  
 `code=<some_string>`  
@@ -55,7 +59,9 @@ sequenceDiagram
 `&redirect_uri=https://<client_host>/redirect`
 
 ### 5 - Token response
-- If the provided parameters are valid, the authorization server response with a token 
+- The authorization server compares the clientId, clientSecret and the code value
+- If the provided parameters are valid, the authorization server responses with a token (optionally also with a refresh token)
+
 ```
 {
   "access_token": "<header>.<body>.<signature>",
