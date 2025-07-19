@@ -1,4 +1,7 @@
-## Font Colors
+---
+title: Font Styles
+sidebar_position: 5
+---
 
 For colorful output, ANSI escape codes are used. More on formatting texts in shell scripts can be found e.g. [here](https://www.baeldung.com/linux/formatting-text-in-terminals)
 
@@ -15,5 +18,4 @@ BOLD="1"
 RED="31"
 # How it looks like in the end
 echo -e "\033[31;1m[ERROR]\033[0m"
-
 ```
