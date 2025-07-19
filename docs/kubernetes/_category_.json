@@ -1,6 +1,6 @@
 {
-  "label": "Shell",
-  "position": 3,
+  "label": "Kubernetes",
+  "position": 2,
   "link": {
     "type": "generated-index", 
     "description": "Shell general and scripting overview"
